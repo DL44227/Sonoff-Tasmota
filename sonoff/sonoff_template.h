@@ -319,6 +319,9 @@ enum SupportedModules {
   SP10,
   WAGA,
   SYF05,
+  TUYA_T1,
+  TUYA_T2,
+  TUYA_T3,  
   MAXMODULE };
 
 #define USER_MODULE        255
@@ -677,7 +680,10 @@ const uint8_t kModuleNiceList[] PROGMEM = {
   SYF05,
   YTF_IR_BRIDGE,
   WITTY,               // Development Devices
-  WEMOS
+  WEMOS,
+  TUYA_T1,
+  TUYA_T2,
+  TUYA_T3  
 };
 
 // Default module settings
@@ -1940,7 +1946,46 @@ const mytmplt kModules[MAXMODULE] PROGMEM = {
      0,                // GPIO15 wired to GND
      GPIO_USER,        // GPIO16 N.C.
      GPIO_FLAG_ADC0    // ADC0 A0 Analog input
-  }
+  },
+  { "Tuya T1", // Tuya Wallswitch 3 switches (ESP8266)
+    GPIO_LED1, // GPIO00
+    0, 0,
+    GPIO_KEY2, // GPIO03
+    0, // GPIO04
+    0, // GPIO05
+    0, 0, 0, 0, 0, 0,
+    GPIO_KEY1, // GPIO12
+    GPIO_REL1, // GPIO13
+    0,
+    0, // GPIO15
+    0, 0
+  },
+  { "Tuya T2", // Tuya Wallswitch 2 switches (ESP8266)
+    GPIO_LED1, // GPIO00
+    0, 0,
+    GPIO_KEY2, // GPIO03
+    GPIO_REL2, // GPIO04
+    0, // GPIO05
+    0, 0, 0, 0, 0, 0,
+    GPIO_KEY1, // GPIO12
+    GPIO_REL1, // GPIO13
+    0,
+    0, // GPIO15
+    0, 0
+  }, 
+  { "Tuya T3", // Tuya Wallswitch 3 switches (ESP8266)
+    GPIO_LED1, // GPIO00
+    0, 0,
+    GPIO_KEY3, // GPIO03 = KEY3
+    GPIO_REL3, // GPIO04 = REL3
+    GPIO_KEY2, // GPIO05
+    0, 0, 0, 0, 0, 0,
+    GPIO_KEY1, // GPIO12
+    GPIO_REL1, // GPIO13
+    0,
+    GPIO_REL2, // GPIO15
+    0, 0
+  }  
 };
 
 /*
